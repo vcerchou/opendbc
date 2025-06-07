@@ -239,7 +239,7 @@ class CarState(CarStateBase):
 
   @staticmethod
   def get_can_parsers(CP):
-    pt_messages = []
+    pt_messages = [("CRZ_BTNS", 10),]
     if not (CP.flags & MazdaFlags.GEN2):
       pt_messages = [
         # sig_address, frequency
@@ -265,7 +265,6 @@ class CarState(CarStateBase):
       if not (CP.flags & MazdaFlags.RADAR_INTERCEPTOR) and not (CP.flags & MazdaFlags.NO_MRCC):
         pt_messages += [
           ("CRZ_CTRL", 50),
-          ("CRZ_BTNS", 10),
         ]
 
     if CP.flags & MazdaFlags.GEN2:
